@@ -1,0 +1,10 @@
+{
+  "found": true,
+  "question": "Convertir 54 pies a yardas",
+  "correct_letter": "B",
+  "correct_text": "18 yardas",
+  "x": 722,
+  "y": 760,
+  "confidence": 0.99,
+  "reasoning": "54 pies dividido por 3 (1 yarda = 3 pies) = 18 yardas. Tile B es '18 yardas'."
+}

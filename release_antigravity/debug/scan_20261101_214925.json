@@ -1,0 +1,10 @@
+{
+  "found": true,
+  "question": "¿Quién fue el primer emperador de la China unificada?",
+  "correct_letter": "B",
+  "correct_text": "Qin Shi Huang",
+  "x": 506,
+  "y": 356,
+  "confidence": 0.99,
+  "reasoning": "Qin Shi Huang unificó China en el 221 a.C. y fundó la dinastía Qin, convirtiéndose en el primer emperador de la China unificada."
+}

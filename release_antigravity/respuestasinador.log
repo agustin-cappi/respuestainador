@@ -1,0 +1,39 @@
+[boot] dpi=per-monitor-v2
+[ready] backend=antigravity
+        cli=C:\Users\Usuario\AppData\Local\Microsoft\WinGet\Packages\Google.AntigravityCLI_Microsoft.Winget.Source_8wekyb3d8bbwe\agy.EXE
+        modelo=(default del backend)
+        F8 = escanear
+        F9 = salir
+[scan] analizando...
+[scan] capturado 1920x1080 (monitor 1920x1080)
+[hit] B (0.99) @ (974,606) -> Sumerios
+[scan] analizando...
+[scan] capturado 1920x1080 (monitor 1920x1080)
+[hit] B (0.99) @ (506,356) -> Qin Shi Huang
+[bye]
+[boot] dpi=per-monitor-v2
+[ready] backend=antigravity
+        cli=C:\Users\Usuario\AppData\Local\Microsoft\WinGet\Packages\Google.AntigravityCLI_Microsoft.Winget.Source_8wekyb3d8bbwe\agy.EXE
+        modelo=(default del backend)
+        F8 = escanear
+        F9 = salir
+[scan] analizando...
+[scan] capturado 1920x1080 (monitor 1920x1080)
+[hit] B (0.99) @ (974,608) -> Sumerios
+[scan] analizando...
+[scan] capturado 1920x1080 (monitor 1920x1080)
+[hit] B (0.99) @ (974,606) -> Sumerios
+[bye]
+[boot] dpi=per-monitor-v2
+[ready] backend=antigravity
+        cli=C:\Users\Usuario\AppData\Local\Microsoft\WinGet\Packages\Google.AntigravityCLI_Microsoft.Winget.Source_8wekyb3d8bbwe\agy.EXE
+        modelo=(default del backend)
+        F8 = escanear
+        F9 = salir
+[scan] analizando...
+[scan] capturado 1920x1080 (monitor 1920x1080)
+[hit] 2 (1.00) @ (721,704) -> 18 yardas
+[scan] analizando...
+[scan] capturado 1920x1080 (monitor 1920x1080)
+[hit] 3 (1.00) @ (1197,703) -> 84 pulgadas
+[bye]

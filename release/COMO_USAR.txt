@@ -1,0 +1,90 @@
+==========================================
+   RESPUESTASINADOR - instrucciones
+==========================================
+
+QUE HACE
+--------
+Apretas F8 cuando hay una pregunta de opcion multiple
+en pantalla y aparece una X negra chica sobre la respuesta
+correcta. F9 cierra el programa.
+
+
+REQUISITOS (unica vez por maquina)
+----------------------------------
+
+1) WINDOWS 10 u 11, 64 bits.
+
+2) CLAUDE CODE instalado y logueado:
+
+   a) Instala Node.js 18+ desde https://nodejs.org (next, next, next).
+
+   b) Abri PowerShell y corre:
+         npm install -g @anthropic-ai/claude-code
+
+   c) Logueate (abre una ventana del navegador):
+         claude
+
+      Entra con tu cuenta de Claude (Max plan recomendado, sino
+      necesitas una API key en https://console.anthropic.com).
+      Despues de loguear podes cerrar la terminal.
+
+   d) Verifica que quede en el PATH:
+         claude --version
+
+      Si eso tira un numero (ej 2.1.316) estas listo.
+
+
+ANTES DE USARLO - VERIFICAR
+---------------------------
+
+Doble click en verificar.bat. Hace 4 chequeos y te dice en pantalla
+que falta: encuentra 'claude', corre --version, prueba un prompt real
+para confirmar que estas logueado, y revisa el .env.
+
+Si al final dice "TODO BIEN" (verde) ya podes abrir respuestasinador.exe.
+Si dice "HAY ALGO QUE ARREGLAR" (rojo), arriba te muestra el comando
+exacto para arreglarlo.
+
+
+USO DIARIO
+----------
+
+1) Doble click en respuestasinador.exe
+   - No abre ninguna ventana, no aparece en la barra de tareas.
+   - Queda corriendo en background escuchando hotkeys.
+
+2) Cuando aparezca una pregunta en pantalla:
+   - F8 -> escanea y marca con una X negra la respuesta correcta.
+   - F8 de vuelta en otra pregunta -> borra la X vieja y marca la nueva.
+   - F9 -> cierra el programa.
+
+3) El primer scan puede tardar 2-5 segundos. Los siguientes son mas rapidos.
+
+
+SI ALGO FALLA
+-------------
+
+Al lado del exe se crean estos archivos para debug:
+
+  respuestasinador.log      -> log de arranque y de cada scan.
+  debug\scan_YYYY_HHMMSS.png -> ultimas capturas enviadas al modelo.
+  debug\scan_YYYY_HHMMSS.json -> respuestas crudas del modelo.
+
+Si una pregunta no se marca bien, abri el .png y el .json para ver que paso.
+
+
+TUNEO OPCIONAL
+--------------
+Copiar .env.example a .env y editar. Ver comentarios adentro.
+Lo mas util:
+
+   RESPUESTASINADOR_MODEL=haiku   -> mucho mas barato y rapido, menos preciso
+   RESPUESTASINADOR_X_LABEL=1     -> muestra la letra al lado de la X
+   RESPUESTASINADOR_X_COLOR=#ff00ff -> cambia color (hex)
+
+
+COSTOS
+------
+Cada F8 cuenta contra tu suscripcion Claude Code (no contra una API aparte).
+Con Max plan es ilimitado dentro de los limites del plan.
+Si usas API key, cada scan son unos pocos centavos.

@@ -1,0 +1,10 @@
+{
+  "found": true,
+  "question": "¿A qué antigua civilización se atribuye el desarrollo del primer sistema de escritura conocido, el cuneiforme?",
+  "correct_letter": "B",
+  "correct_text": "Sumerios",
+  "x": 974,
+  "y": 606,
+  "confidence": 0.99,
+  "reasoning": "La escritura cuneiforme fue desarrollada por los sumerios en Mesopotamia hacia finales del IV milenio a. C."
+}

@@ -1,0 +1,10 @@
+{
+  "found": true,
+  "question": "Convertir 54 pies a yardas",
+  "correct_letter": "2",
+  "correct_text": "18 yardas",
+  "x": 721,
+  "y": 704,
+  "confidence": 1.0,
+  "reasoning": "1 yarda equivale a 3 pies, por lo que 54 pies divididos entre 3 son 18 yardas (segundo bloque de izquierda a derecha)."
+}

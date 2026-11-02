@@ -1,0 +1,7 @@
+
+[boot] dpi=per-monitor-v2
+[ready] backend=claude
+        cli=C:\Users\Usuario\.local\bin\claude.EXE
+        modelo=(default del backend)
+        F8 = escanear
+        F9 = salir

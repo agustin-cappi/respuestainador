@@ -1,0 +1,91 @@
+==========================================
+   RESPUESTASINADOR (Antigravity) - uso
+==========================================
+
+QUE HACE
+--------
+F8 escanea la pantalla, Google Antigravity analiza la pregunta
+de opcion multiple y aparece una X negra chica sobre la respuesta
+correcta. F9 cierra el programa.
+
+
+REQUISITOS (unica vez por maquina)
+----------------------------------
+
+1) WINDOWS 10 u 11, 64 bits.
+
+2) ANTIGRAVITY CLI instalado y logueado:
+
+   a) Instalar desde WinGet:
+         winget install Google.AntigravityCLI
+
+      (o desde https://antigravity.google)
+
+   b) Logueate (abre el navegador):
+         agy
+
+      Entra con tu cuenta Google. Despues de loguear podes
+      cerrar la terminal.
+
+   c) Verifica que funcione:
+         agy --version
+
+      Si tira "1.4.7" o similar estas listo.
+
+      Si "agy" no se reconoce, el programa igual lo encuentra
+      automaticamente en la carpeta de WinGet. No pasa nada.
+
+
+ANTES DE USARLO - VERIFICAR
+---------------------------
+
+Doble click en verificar.bat. Hace 4 chequeos y te dice en pantalla
+que falta: encuentra 'agy' (en PATH o en WinGet), corre --version,
+prueba un prompt real para confirmar que estas logueado, y revisa el .env.
+
+Si al final dice "TODO BIEN" (verde) ya podes abrir respuestasinador.exe.
+Si dice "HAY ALGO QUE ARREGLAR" (rojo), arriba te muestra el comando
+exacto para arreglarlo.
+
+
+USO DIARIO
+----------
+
+1) Doble click en respuestasinador.exe
+   - No abre ventana, no aparece en la barra de tareas.
+   - Queda corriendo en background escuchando hotkeys.
+
+2) Cuando aparezca una pregunta en pantalla:
+   - F8 -> escanea y marca con una X negra la respuesta correcta.
+   - F8 de vuelta en otra pregunta -> borra la X vieja, marca la nueva.
+   - F9 -> cierra el programa.
+
+3) El primer scan puede tardar 5-10 segundos (Antigravity es un poco
+   mas lento que Claude). Los siguientes son mas rapidos por el cache.
+
+
+SI ALGO FALLA
+-------------
+
+Al lado del exe se crean estos archivos para debug:
+
+   respuestasinador.log           -> log de arranque y de cada scan
+   debug\scan_YYYY_HHMMSS.png     -> ultimas capturas enviadas
+   debug\scan_YYYY_HHMMSS.json    -> respuestas crudas del modelo
+
+
+COSTOS
+------
+Cada F8 cuenta contra tu cuenta Google / Antigravity.
+Dentro del tier gratuito deberia funcionar bien.
+Si quieres mas potencia, Antigravity tiene planes pagos.
+
+
+SI QUIERES USAR CLAUDE EN LUGAR DE ANTIGRAVITY
+----------------------------------------------
+Editas el archivo .env y cambias la linea:
+   RESPUESTASINADOR_BACKEND=antigravity
+por:
+   RESPUESTASINADOR_BACKEND=claude
+
+Pero necesitas tener instalado Claude Code en vez de Antigravity.

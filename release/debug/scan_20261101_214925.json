@@ -1,0 +1,10 @@
+{
+  "found": true,
+  "question": "¿En qué año tuvo lugar la firma de la Carta Magna?",
+  "correct_letter": "C",
+  "correct_text": "1215",
+  "x": 973,
+  "y": 651,
+  "confidence": 0.99,
+  "reasoning": "La Carta Magna fue firmada por el rey Juan I de Inglaterra en 1215. 1492 es el descubrimiento de América y 1066 la batalla de Hastings."
+}

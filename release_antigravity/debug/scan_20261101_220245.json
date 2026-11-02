@@ -1,0 +1,10 @@
+{
+  "found": true,
+  "question": "7 pies = ___ pulgadas",
+  "correct_letter": "3",
+  "correct_text": "84 pulgadas",
+  "x": 1197,
+  "y": 703,
+  "confidence": 1.0,
+  "reasoning": "1 pie equivale a 12 pulgadas, por lo tanto 7 pies = 7 * 12 = 84 pulgadas (tercer bloque)."
+}
