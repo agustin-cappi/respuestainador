@@ -5,3 +5,29 @@
         modelo=(default del backend)
         F8 = escanear
         F9 = salir
+[boot] dpi=per-monitor-v2
+[ready] backend=claude
+        cli=C:\Users\Usuario\.local\bin\claude.EXE
+        modelo=(default del backend)
+        F8 = escanear
+        F9 = salir
+[scan] analizando...
+[scan] capturado 1920x1080 (monitor 1920x1080)
+[time] clear=0.01s cap=0.05s llm=5.30s total=5.36s
+[hit] B @ (974,652) -> 
+[scan] analizando...
+[scan] capturado 1920x1080 (monitor 1920x1080)
+[time] clear=0.03s cap=0.05s llm=5.86s total=5.94s
+[hit] B @ (974,652) -> 
+[bye]
+[boot] dpi=per-monitor-v2
+[ready] backend=claude
+        cli=C:\Users\Usuario\.local\bin\claude.EXE
+        modelo=(default del backend)
+        F8 = escanear
+        F9 = salir
+[scan] analizando...
+[scan] capturado 1920x1080 (monitor 1920x1080)
+[time] clear=0.02s cap=0.06s llm=6.10s total=6.18s
+[hit] 2 @ (722,762) -> 
+[bye]

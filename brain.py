@@ -9,12 +9,10 @@ from pathlib import Path
 from PIL import Image
 
 
-PROMPT_TEMPLATE = """Lee @{path} ({w}x{h} px) con Read. Es una pregunta de opcion multiple (A/B/C/D, 1/2/3/4, tiles Kahoot, cards, botones, radios). Las opciones pueden ser texto, numeros, formulas o imagenes.
+PROMPT_TEMPLATE = """Imagen @{path} ({w}x{h}): pregunta de opcion multiple. Resolvela y devolve el centro visual de la correcta en coords imagen (origen top-left). Tiles grandes = centro del tile, no del badge. L = la letra o numero que se ve en pantalla ("A"/"B"/"C"/"D" o "1"/"2"/"3"/"4"), o la posicion 1-4 si no hay badge visible. Si no hay pregunta: f=false.
 
-Resuelve la pregunta y devolve el centro visual de la opcion correcta en coordenadas de la imagen (origen top-left). Si son tiles grandes apunta al centro del tile, no al badge chico. correct_letter = "A","B","C","D" o "1","2","3","4" segun lo que muestre la pantalla. Solo found=false si de verdad no ves una pregunta.
-
-Responde UNA sola linea de JSON, sin markdown:
-{{"found":true,"correct_letter":"B","correct_text":"...","x":123,"y":456,"confidence":0.0}}
+CRITICO: responde EXCLUSIVAMENTE con la linea JSON. NADA de markdown, NADA de ```, NADA de texto explicando. Solo la linea:
+{{"f":true,"L":"2","x":123,"y":456}}
 """
 
 
@@ -32,6 +30,44 @@ def _stripFences(text):
     text = text.strip()
     m = re.match(r"^```(?:json)?\s*(.*?)\s*```$", text, re.DOTALL)
     return m.group(1).strip() if m else text
+
+
+def _extractJsonObject(text):
+    text = text.strip()
+    m = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
+    if m:
+        try:
+            return json.loads(m.group(1))
+        except json.JSONDecodeError:
+            pass
+    depth = 0
+    start = -1
+    inStr = False
+    esc = False
+    for i, c in enumerate(text):
+        if esc:
+            esc = False
+            continue
+        if c == "\\":
+            esc = True
+            continue
+        if c == '"':
+            inStr = not inStr
+            continue
+        if inStr:
+            continue
+        if c == "{":
+            if depth == 0:
+                start = i
+            depth += 1
+        elif c == "}" and depth > 0:
+            depth -= 1
+            if depth == 0 and start >= 0:
+                try:
+                    return json.loads(text[start:i + 1])
+                except json.JSONDecodeError:
+                    start = -1
+    return None
 
 
 class _BaseBrain:
@@ -102,7 +138,14 @@ class _BaseBrain:
             try:
                 parsed = json.loads(inner)
             except json.JSONDecodeError:
-                return {"found": False, "raw": inner[:400]}
+                parsed = _extractJsonObject(inner)
+                if not isinstance(parsed, dict):
+                    return {"found": False, "raw": inner[:400]}
+
+            if "found" not in parsed and "f" in parsed:
+                parsed["found"] = parsed.pop("f")
+            if "correct_letter" not in parsed and "L" in parsed:
+                parsed["correct_letter"] = parsed.pop("L")
 
             if scale != 1.0 and parsed.get("found"):
                 for k in ("x", "y"):
